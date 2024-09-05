@@ -72,7 +72,7 @@ io.on('connection', (socket) => {
     });
 });
 
-module.export = (req, res) => {
+module.exports = (req, res) => {
     server.listen(port, () => {
     console.log(`Server listening at port: ${port}`);
 });
