@@ -80,3 +80,23 @@ module.export = (req, res) => {
     return app;
 }
 
+const express = require('express');
+const { Server } = require('socket.io');
+const http = require('http');
+
+app.get('/', (req, res) => {
+  res.send('Hello from serverless function!');
+});
+
+io.on('connection', (socket) => {
+  console.log('a user connected');
+  // Add your socket.io logic here
+
+  socket.on('disconnect', () => {
+    console.log('user disconnected');
+  });
+});
+
+module.exports = (req, res) => {
+  res.status(200).send('Hello from serverless function!');
+};
